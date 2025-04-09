@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Book Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="./index.css">
+   
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">📚 Book Management System</h1>
+        
+        <!-- Search Bar -->
+        <input type="text" id="searchBar" class="form-control my-3" placeholder="🔍 Search books...">
+        
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="bookTabs">
+            <li class="nav-item"><a class="nav-link active" href="#all" data-bs-toggle="tab">📚 All Books</a></li>
+            <li class="nav-item"><a class="nav-link" href="#favorites" data-bs-toggle="tab">💖 Favorites</a></li>
+            <li class="nav-item"><a class="nav-link" href="#unread" data-bs-toggle="tab">📕 Unread</a></li>
+            <li class="nav-item"><a class="nav-link" href="#read" data-bs-toggle="tab">✅ Read</a></li>
+        </ul>
+        
+
+        <!-- Book List -->
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="all">
+                <div id="bookGrid" class="row"></div>
+            </div>
+            <div class="tab-pane fade" id="favorites">
+                <div id="favoriteBooks" class="row"></div>
+            </div>
+            <div class="tab-pane fade" id="unread">
+                <div id="unreadBooks" class="row"></div>
+            </div>
+            <div class="tab-pane fade" id="read">
+                <div id="readBooks" class="row"></div>
+            </div>
+        </div>
+
+        <!-- Add Book Button -->
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#bookModal">Add Book</button>
+    </div>
+
+    <!-- Add/Edit Book Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">📖 Add Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookForm">
+                        <input type="hidden" id="bookId">
+                        <div class="mb-3">
+                            <label>📖 Title</label>
+                            <input type="text" id="title" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>✍ Author</label>
+                            <input type="text" id="author" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>📂 Genre</label>
+                            <input type="text" id="genre" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>📌 Status</label>
+                            <select id="status" class="form-control" required>
+                                <option value="Unread">📕 Unread</option>
+                                <option value="Read">✅ Read</option>
+                                <option value="Favorites">💖 Favorites</option>
+                                <option value="All Books">📚 All Books</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label>📷 Book Cover</label>
+                            <input type="file" id="image" class="form-control" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">💾 Save Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./index copy.js"></script>
+</body>
+</html>
